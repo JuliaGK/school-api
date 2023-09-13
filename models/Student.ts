@@ -7,13 +7,13 @@ class Student extends Person {
     constructor(
         id: number,
         name: string,
-        age: number,
         cpf: string,
+        birthday: string,
         year: number,
         shift: string,
         room: string
     ) {
-        super(id, name, age, cpf);
+        super(id, name, cpf, birthday);
         this.year = year;
         this.shift = shift;
         this.room = room;

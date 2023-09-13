@@ -9,5 +9,4 @@ const teachersRoot = (req: Request, res: Response) => {
 // TODO: update teacher
 // TODO: delete teacher
 // TODO: get all subjects that the teacher is in
-
 export { teachersRoot };

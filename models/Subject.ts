@@ -3,7 +3,6 @@ class Subject {
     name: string;
     teacher: Teacher;
     active: boolean = true;
-    grades: Grades[] = [];
 
     constructor(id: number, name: string, teacher: Teacher) {
         this.id = id;

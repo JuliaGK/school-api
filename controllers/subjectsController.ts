@@ -11,5 +11,6 @@ const subjectsRoot = (req: Request, res: Response) => {
 // TODO: add grade
 // TODO: get allGrades
 // TODO: get mean
+// TODO: change active to unactive
 
 export { subjectsRoot };

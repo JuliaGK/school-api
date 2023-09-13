@@ -8,7 +8,9 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const studentsRoute_1 = __importDefault(require("../routes/studentsRoute"));
 const teachersRoute_1 = __importDefault(require("../routes/teachersRoute"));
 const subjectsRoute_1 = __importDefault(require("../routes/subjectsRoute"));
+const dbConfig_1 = require("../db/dbConfig");
 dotenv_1.default.config();
+let db = (0, dbConfig_1.createDbConnection)();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 app.get("/", (req, res) => {

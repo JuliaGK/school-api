@@ -4,11 +4,11 @@ class Teacher extends Person {
     constructor(
         id: number,
         name: string,
-        age: number,
         cpf: string,
+        birthday: string,
         salary: number
     ) {
-        super(id, name, age, cpf);
+        super(id, name, cpf, birthday);
         this.salary = salary;
     }
 }
