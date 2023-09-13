@@ -80,4 +80,4 @@ const createTableGrades = () => {
     `);
 };
 
-export { createDbConnection };
+export { createDbConnection, db };

@@ -13,3 +13,5 @@ class Person {
         this.birthday = birthday;
     }
 }
+
+export default Person;

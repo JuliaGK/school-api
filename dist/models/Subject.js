@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Subject {
     constructor(id, name, teacher) {
         this.active = true;
@@ -7,3 +8,4 @@ class Subject {
         this.teacher = teacher;
     }
 }
+exports.default = Subject;

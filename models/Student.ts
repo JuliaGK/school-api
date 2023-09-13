@@ -1,3 +1,5 @@
+import Person from "./Person";
+
 class Student extends Person {
     year: number;
     shift: string;
@@ -19,3 +21,5 @@ class Student extends Person {
         this.room = room;
     }
 }
+
+export default Student;

@@ -1,3 +1,5 @@
+import Teacher from "./Teacher";
+
 class Subject {
     id: number;
     name: string;
@@ -10,3 +12,5 @@ class Subject {
         this.teacher = teacher;
     }
 }
+
+export default Subject;

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Person {
     constructor(id, name, cpf, birthday) {
         //TODO: Adicionar checagem de data valida
@@ -9,3 +10,4 @@ class Person {
         this.birthday = birthday;
     }
 }
+exports.default = Person;

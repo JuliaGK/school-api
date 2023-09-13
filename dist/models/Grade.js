@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Grade {
     constructor(id, idStudent, idSubject, grade) {
         this.id = id;
@@ -7,3 +8,4 @@ class Grade {
         this.grade = grade;
     }
 }
+exports.default = Grade;

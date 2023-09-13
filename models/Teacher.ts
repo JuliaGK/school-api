@@ -1,3 +1,5 @@
+import Person from "./Person";
+
 class Teacher extends Person {
     salary: number;
 
@@ -12,3 +14,5 @@ class Teacher extends Person {
         this.salary = salary;
     }
 }
+
+export default Teacher;

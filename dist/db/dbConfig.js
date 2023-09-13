@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createDbConnection = void 0;
+exports.db = exports.createDbConnection = void 0;
 const sqlite3 = require("sqlite3").verbose();
 const filePath = "./db/school.db";
 let db = null;
+exports.db = db;
 const createDbConnection = () => {
-    db = new sqlite3.Database(filePath, (error) => {
+    exports.db = db = new sqlite3.Database(filePath, (error) => {
         if (error) {
             return console.error(error.message);
         }

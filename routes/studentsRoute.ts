@@ -1,8 +1,16 @@
 import { Router } from "express";
-import { studentsRoot } from "../controllers/studentsController";
+import {
+    studentsRoot,
+    addStudent,
+    getStudents,
+} from "../controllers/studentsController";
 
 const studentsRouter = Router();
 
 studentsRouter.get("/", studentsRoot);
+
+studentsRouter.get("/getStudents", getStudents);
+
+studentsRouter.post("/addStudent", addStudent);
 
 export default studentsRouter;

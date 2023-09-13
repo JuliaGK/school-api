@@ -16,3 +16,5 @@ class Grade {
         this.grade = grade;
     }
 }
+
+export default Grade;
