@@ -18,7 +18,6 @@ const getStudents = (req: Request, res: Response) => {
                 res.status(400);
                 res.end(error);
             }
-            console.log(row);
             students.push(row);
         },
         () => {
@@ -27,7 +26,24 @@ const getStudents = (req: Request, res: Response) => {
     );
 };
 
-// TODO: get specific student by id
+const getStudent = (req: Request, res: Response) => {
+    const id = req.query.id;
+    const sql = `
+        SELECT * FROM students WHERE id=${id};
+    `;
+
+    db.get(sql, [], (error: Error, row: Student) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        if (row) {
+            res.send(row);
+        } else {
+            res.send("Não existe estudante para esse id");
+        }
+    });
+};
 
 const addStudent = (req: Request, res: Response) => {
     const student: Student = req.body;
@@ -48,8 +64,49 @@ const addStudent = (req: Request, res: Response) => {
     });
 };
 
-// TODO: update student
-// TODO: delete student
-// TODO: get student grades
+const updateStudent = (req: Request, res: Response) => {
+    const student: Student = req.body;
+    const sql = `
+        UPDATE students
+        SET name = "${student.name.toUpperCase()}",
+        cpf = "${student.cpf}",
+        birthday = "${student.birthday}",
+        year = "${student.year}",
+        shift = "${student.shift.toUpperCase()}",
+        room = "${student.room.toUpperCase()}"
+        WHERE id = ${student.id};
+    `;
 
-export { studentsRoot, getStudents, addStudent };
+    db.run(sql, (error: Error) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        res.send("student updated");
+    });
+};
+
+const deleteStudent = (req: Request, res: Response) => {
+    const id = req.query.id;
+    const sql = ` 
+        DELETE FROM students
+        WHERE id = ${id};
+    `;
+
+    db.run(sql, (error: Error) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        res.send("student deleted");
+    });
+};
+
+export {
+    studentsRoot,
+    getStudents,
+    getStudent,
+    addStudent,
+    updateStudent,
+    deleteStudent,
+};
