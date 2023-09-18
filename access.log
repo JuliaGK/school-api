@@ -1,0 +1,5 @@
+::1 - - [18/Sep/2023:13:01:36 +0000] "GET /grades/getGrades HTTP/1.1" 200 95 "-" "PostmanRuntime/7.33.0"
+::1 - - [18/Sep/2023:13:01:47 +0000] "GET /students/getStudents HTTP/1.1" 200 263 "-" "PostmanRuntime/7.33.0"
+::1 - - [18/Sep/2023:13:02:03 +0000] "DELETE /students/deleteStudent?id=2 HTTP/1.1" 200 15 "-" "PostmanRuntime/7.33.0"
+::1 - - [18/Sep/2023:13:02:08 +0000] "DELETE /students/deleteStudent?id=1 HTTP/1.1" 200 15 "-" "PostmanRuntime/7.33.0"
+::1 - - [18/Sep/2023:13:02:11 +0000] "POST /students/addStudent HTTP/1.1" 201 13 "-" "PostmanRuntime/7.33.0"

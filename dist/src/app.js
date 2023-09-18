@@ -7,6 +7,8 @@ const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const helmet_1 = __importDefault(require("helmet"));
+const morgan_1 = __importDefault(require("morgan"));
+const fs_1 = __importDefault(require("fs"));
 const studentsRoute_1 = __importDefault(require("../routes/studentsRoute"));
 const teachersRoute_1 = __importDefault(require("../routes/teachersRoute"));
 const subjectsRoute_1 = __importDefault(require("../routes/subjectsRoute"));
@@ -16,6 +18,10 @@ dotenv_1.default.config();
 (0, dbConfig_1.createDbConnection)();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
+var accessLogStream = fs_1.default.createWriteStream("./access.log", {
+    flags: "a",
+});
+app.use((0, morgan_1.default)("combined", { stream: accessLogStream }));
 app.use((0, cors_1.default)());
 app.use((0, helmet_1.default)());
 app.use(express_1.default.urlencoded({ extended: false }));
