@@ -138,8 +138,7 @@ const deleteGrade = (req: Request, res: Response) => {
             res.end(error);
         }
         res.status(200);
-        // TODO: dar mensagem para quando não foi deletado por falta de subject
-        // com id correspondente
+
         res.send("grade deleted");
     });
 };

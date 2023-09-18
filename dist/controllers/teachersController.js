@@ -125,8 +125,6 @@ const deleteTeacher = (req, res) => {
             res.end(error);
         }
         res.status(200);
-        // TODO: dar mensagem para quando não foi deletado por falta de professor
-        // com id correspondente
         res.send("teacher deleted");
     });
 };

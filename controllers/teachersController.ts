@@ -143,14 +143,10 @@ const deleteTeacher = (req: Request, res: Response) => {
             res.end(error);
         }
         res.status(200);
-        // TODO: dar mensagem para quando não foi deletado por falta de professor
-        // com id correspondente
         res.send("teacher deleted");
     });
 };
 
-// TODO: get all subjects that the teacher is in
-// TODO: use patch route
 export {
     teachersRoot,
     getTeachers,

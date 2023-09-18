@@ -1,0 +1,649 @@
+{
+	"info": {
+		"_postman_id": "6e9f8ffb-d1a4-45be-b1f4-e8949c0f2791",
+		"name": "school",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27411327"
+	},
+	"item": [
+		{
+			"name": "students",
+			"item": [
+				{
+					"name": "getStudents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/students/getStudents",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students",
+								"getStudents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStudentsOrderedByBirthday",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/students/getStudentsOrderedByBirthday",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students",
+								"getStudentsOrderedByBirthday"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStudent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/students/getStudent?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students",
+								"getStudent"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addStudent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"12218637545\",\r\n    \"name\": \"Joana Teresinha Giovanna Fogaça\",\r\n    \"birthday\": \"2004-04-25\",\r\n    \"shift\": \"manha\",\r\n    \"room\": \"a\",\r\n    \"year\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/students/addStudent",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students",
+								"addStudent"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStudent",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"cpf\": \"12218637545\",\r\n    \"name\": \"Joana Teresinha Giovanna Fogaça\",\r\n    \"birthday\": \"2008-04-25\",\r\n    \"shift\": \"manha\",\r\n    \"room\": \"a\",\r\n    \"year\": \"6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/students/updateStudent",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students",
+								"updateStudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteStudent",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/students/deleteStudent?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"students",
+								"deleteStudent"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teachers",
+			"item": [
+				{
+					"name": "getTeachers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/teachers/getTeachers",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teachers",
+								"getTeachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTeachersOrderedByBirthday",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/teachers/getTeachersOrderedByBirthday",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teachers",
+								"getTeachersOrderedByBirthday"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTeacher",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/teachers/getTeacher?id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teachers",
+								"getTeacher"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSalaryAverage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/teachers/getSalaryAverage",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teachers",
+								"getSalaryAverage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addTeacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Thomas Mateus Jorge Dias\",\r\n    \"cpf\": \"98107119053\",\r\n    \"birthday\": \"2000-02-06\",\r\n    \"salary\": \"2000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/teachers/addTeacher",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teachers",
+								"addTeacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTeacher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Thomas Mateus Jorge Dias\",\r\n    \"cpf\": \"98107119053\",\r\n    \"birthday\": \"1981-02-06\",\r\n    \"salary\": \"3200\",\r\n    \"id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/teachers/updateTeacher",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teachers",
+								"updateTeacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTeacher",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/teachers/deleteTeacher?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teachers",
+								"deleteTeacher"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subjects",
+			"item": [
+				{
+					"name": "getSubjects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/subjects/getSubjects",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"subjects",
+								"getSubjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSubject",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/subjects/getSubject?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"subjects",
+								"getSubject"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addSubject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"matemática\",\r\n    \"idTeacher\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/subjects/addSubject",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"subjects",
+								"addSubject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateSubjects",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"portugues\",\r\n    \"idTeacher\": \"1\",\r\n    \"id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/subjects/updateSubject",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"subjects",
+								"updateSubject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSubject",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/subjects/deleteSubject?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"subjects",
+								"deleteSubject"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "grades",
+			"item": [
+				{
+					"name": "getGrades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/grades/getGrades",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"grades",
+								"getGrades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getGradesBySubject",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/grades/getGradesBySubject?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"grades",
+								"getGradesBySubject"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getGradesByStudent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/grades/getGradesByStudent?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"grades",
+								"getGradesByStudent"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getGrade",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/grades/getGrade?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"grades",
+								"getGrade"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addGrade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idStudent\": \"1\",\r\n    \"idSubject\": \"1\",\r\n    \"grade\": \"9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/grades/addGrade",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"grades",
+								"addGrade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateGrades",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idStudent\": \"1\",\r\n    \"idSubject\": \"1\",\r\n    \"grade\": \"8\",\r\n    \"id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/grades/updateGrade",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"grades",
+								"updateGrade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteGrade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/grades/deleteGrade?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"grades",
+								"deleteGrade"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
