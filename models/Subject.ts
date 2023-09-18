@@ -1,14 +1,12 @@
-import Teacher from "./Teacher";
-
 class Subject {
     id: number;
     name: string;
-    teacher: Teacher;
+    idTeacher: number;
 
-    constructor(id: number, name: string, teacher: Teacher) {
+    constructor(id: number, name: string, idTeacher: number) {
         this.id = id;
         this.name = name;
-        this.teacher = teacher;
+        this.idTeacher = idTeacher;
     }
 }
 
