@@ -1,8 +1,25 @@
 import { Router } from "express";
-import { gradesRoot } from "../controllers/gradesController";
+import {
+    gradesRoot,
+    getGrades,
+    getGrade,
+    addGrade,
+    updateGrade,
+    deleteGrade,
+} from "../controllers/gradesController";
 
 const gradesRouter = Router();
 
 gradesRouter.get("/", gradesRoot);
+
+gradesRouter.get("/getGrades", getGrades);
+
+gradesRouter.get("/getGrade", getGrade);
+
+gradesRouter.post("/addGrade", addGrade);
+
+gradesRouter.put("/updateGrade", updateGrade);
+
+gradesRouter.delete("/deleteGrade", deleteGrade);
 
 export default gradesRouter;

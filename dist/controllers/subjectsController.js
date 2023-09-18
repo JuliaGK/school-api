@@ -6,22 +6,6 @@ const subjectsRoot = (req, res) => {
     res.send("subjects root");
 };
 exports.subjectsRoot = subjectsRoot;
-const addSubject = (req, res) => {
-    const subject = req.body;
-    const sql = `
-        INSERT INTO subjects (name, idTeacher)
-        VALUES ("${subject.name.toUpperCase()}", "${subject.idTeacher}");
-    `;
-    dbConfig_1.db.run(sql, (error) => {
-        if (error) {
-            res.status(400);
-            res.end(error);
-        }
-        res.status(201);
-        res.send("subject added");
-    });
-};
-exports.addSubject = addSubject;
 const getSubjects = (req, res) => {
     const subjects = [];
     const sql = `SELECT * FROM subjects;`;
@@ -56,6 +40,22 @@ const getSubject = (req, res) => {
     });
 };
 exports.getSubject = getSubject;
+const addSubject = (req, res) => {
+    const subject = req.body;
+    const sql = `
+        INSERT INTO subjects (name, idTeacher)
+        VALUES ("${subject.name.toUpperCase()}", "${subject.idTeacher}");
+    `;
+    dbConfig_1.db.run(sql, (error) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        res.status(201);
+        res.send("subject added");
+    });
+};
+exports.addSubject = addSubject;
 const updateSubject = (req, res) => {
     const subject = req.body;
     const sql = `
