@@ -1,12 +1,116 @@
 import { Response, Request } from "express";
+import Teacher from "../models/Teacher";
+import { db } from "../db/dbConfig";
 
 const teachersRoot = (req: Request, res: Response) => {
     res.send("teachers root");
 };
 
-// TODO: add teacher
-// TODO: get teacher
-// TODO: update teacher
-// TODO: delete teacher
+const getTeachers = (req: Request, res: Response) => {
+    const teachers: Teacher[] = [];
+    const sql = `SELECT * FROM teachers;`;
+
+    db.each(
+        sql,
+        [],
+        (error: Error, row: Teacher) => {
+            if (error) {
+                res.status(400);
+                res.end(error);
+            }
+            teachers.push(row);
+        },
+        () => {
+            res.send(teachers);
+        }
+    );
+};
+
+const getTeacher = (req: Request, res: Response) => {
+    const id = req.query.id;
+    const sql = `
+        SELECT * FROM teachers WHERE id=${id};
+    `;
+
+    db.get(sql, [], (error: Error, row: Teacher) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        res.status(200);
+        if (row) {
+            res.send(row);
+        } else {
+            res.send("Não existe professor para esse id");
+        }
+    });
+};
+
+const addTeacher = (req: Request, res: Response) => {
+    const teacher: Teacher = req.body;
+    const sql = `
+        INSERT INTO teachers (name, cpf, birthday, salary)
+        VALUES ("${teacher.name.toUpperCase()}", "${teacher.cpf}", 
+        "${teacher.birthday}", "${teacher.salary}");
+    `;
+
+    db.run(sql, (error: Error) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        res.status(201);
+        res.send("teachers added");
+    });
+};
+
+const updateTeacher = (req: Request, res: Response) => {
+    const teacher: Teacher = req.body;
+    const sql = `
+        UPDATE teachers
+        SET name = "${teacher.name.toUpperCase()}",
+        cpf = "${teacher.cpf}",
+        birthday = "${teacher.birthday}",
+        salary = "${teacher.salary}"
+        WHERE id = ${teacher.id};
+    `;
+
+    db.run(sql, (error: Error) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        res.status(200);
+        res.send("teacher updated");
+    });
+};
+
+const deleteTeacher = (req: Request, res: Response) => {
+    const id = req.query.id;
+    const sql = ` 
+        DELETE FROM teachers
+        WHERE id = ${id};
+    `;
+
+    db.run(sql, (error: Error) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        res.status(200);
+        // TODO: dar mensagem para quando não foi deletado por falta de professor
+        // com id correspondente
+        res.send("teacher deleted");
+    });
+};
+
 // TODO: get all subjects that the teacher is in
-export { teachersRoot };
+// TODO: use patch route
+export {
+    teachersRoot,
+    getTeachers,
+    getTeacher,
+    addTeacher,
+    updateTeacher,
+    deleteTeacher,
+};
