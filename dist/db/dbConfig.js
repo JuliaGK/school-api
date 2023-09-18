@@ -50,7 +50,6 @@ const createTableSubjects = () => {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name VARCHAR(50),
         idTeacher INTEGER,
-        active BOOLEAN,
         FOREIGN KEY (idTeacher) REFERENCES teachers(id)
         );
     `);
