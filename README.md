@@ -1,1 +1,1 @@
-# projeto-escola-backend
+# school-api
