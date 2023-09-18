@@ -8,7 +8,7 @@ const studentsRoot = (req: Request, res: Response) => {
 
 const getStudents = (req: Request, res: Response) => {
     const students: Student[] = [];
-    const sql = `SELECT * FROM students`;
+    const sql = `SELECT * FROM students;`;
 
     db.each(
         sql,
@@ -37,6 +37,7 @@ const getStudent = (req: Request, res: Response) => {
             res.status(400);
             res.end(error);
         }
+        res.status(200);
         if (row) {
             res.send(row);
         } else {
@@ -51,7 +52,7 @@ const addStudent = (req: Request, res: Response) => {
         INSERT INTO students (name, cpf, birthday, year, shift, room)
         VALUES ("${student.name.toUpperCase()}", "${student.cpf}", 
         "${student.birthday}", "${student.year}",
-        "${student.shift.toUpperCase()}", "${student.room.toUpperCase()}")
+        "${student.shift.toUpperCase()}", "${student.room.toUpperCase()}");
     `;
 
     db.run(sql, (error: Error) => {
@@ -82,6 +83,7 @@ const updateStudent = (req: Request, res: Response) => {
             res.status(400);
             res.end(error);
         }
+        res.status(200);
         res.send("student updated");
     });
 };
@@ -98,6 +100,7 @@ const deleteStudent = (req: Request, res: Response) => {
             res.status(400);
             res.end(error);
         }
+        res.status(200);
         res.send("student deleted");
     });
 };
