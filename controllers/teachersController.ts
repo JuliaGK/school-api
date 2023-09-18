@@ -26,6 +26,26 @@ const getTeachers = (req: Request, res: Response) => {
     );
 };
 
+const getTeachersOrderedByBirthday = (req: Request, res: Response) => {
+    const teachers: Teacher[] = [];
+    const sql = `SELECT * FROM teachers ORDER BY birthday;`;
+
+    db.each(
+        sql,
+        [],
+        (error: Error, row: Teacher) => {
+            if (error) {
+                res.status(400);
+                res.end(error);
+            }
+            teachers.push(row);
+        },
+        () => {
+            res.send(teachers);
+        }
+    );
+};
+
 const getTeacher = (req: Request, res: Response) => {
     const id = req.query.id;
     const sql = `
@@ -42,6 +62,31 @@ const getTeacher = (req: Request, res: Response) => {
             res.send(row);
         } else {
             res.send("Não existe professor para esse id");
+        }
+    });
+};
+
+const getSalaryAverage = (req: Request, res: Response) => {
+    const sql = `
+        SELECT salary FROM teachers ;
+    `;
+
+    db.all(sql, [], (error: Error, rows: any) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        res.status(200);
+
+        const avgSalary =
+            rows.reduce((sum: number, row: any) => {
+                return sum + row.salary;
+            }, 0) / rows.length;
+
+        if (avgSalary) {
+            res.send(avgSalary.toString());
+        } else {
+            res.send("Sem professores cadastrados");
         }
     });
 };
@@ -109,7 +154,9 @@ const deleteTeacher = (req: Request, res: Response) => {
 export {
     teachersRoot,
     getTeachers,
+    getTeachersOrderedByBirthday,
     getTeacher,
+    getSalaryAverage,
     addTeacher,
     updateTeacher,
     deleteTeacher,

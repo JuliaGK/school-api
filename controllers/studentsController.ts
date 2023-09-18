@@ -26,6 +26,26 @@ const getStudents = (req: Request, res: Response) => {
     );
 };
 
+const getStudentsOrderedByBirthday = (req: Request, res: Response) => {
+    const students: Student[] = [];
+    const sql = `SELECT * FROM students ORDER BY birthday;`;
+
+    db.each(
+        sql,
+        [],
+        (error: Error, row: Student) => {
+            if (error) {
+                res.status(400);
+                res.end(error);
+            }
+            students.push(row);
+        },
+        () => {
+            res.send(students);
+        }
+    );
+};
+
 const getStudent = (req: Request, res: Response) => {
     const id = req.query.id;
     const sql = `
@@ -108,6 +128,7 @@ const deleteStudent = (req: Request, res: Response) => {
 export {
     studentsRoot,
     getStudents,
+    getStudentsOrderedByBirthday,
     getStudent,
     addStudent,
     updateStudent,

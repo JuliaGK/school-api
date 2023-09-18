@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteStudent = exports.updateStudent = exports.addStudent = exports.getStudent = exports.getStudents = exports.studentsRoot = void 0;
+exports.deleteStudent = exports.updateStudent = exports.addStudent = exports.getStudent = exports.getStudentsOrderedByBirthday = exports.getStudents = exports.studentsRoot = void 0;
 const dbConfig_1 = require("../db/dbConfig");
 const studentsRoot = (req, res) => {
     res.send("students root");
@@ -20,6 +20,20 @@ const getStudents = (req, res) => {
     });
 };
 exports.getStudents = getStudents;
+const getStudentsOrderedByBirthday = (req, res) => {
+    const students = [];
+    const sql = `SELECT * FROM students ORDER BY birthday;`;
+    dbConfig_1.db.each(sql, [], (error, row) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        students.push(row);
+    }, () => {
+        res.send(students);
+    });
+};
+exports.getStudentsOrderedByBirthday = getStudentsOrderedByBirthday;
 const getStudent = (req, res) => {
     const id = req.query.id;
     const sql = `

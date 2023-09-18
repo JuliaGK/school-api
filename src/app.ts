@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import helmet from "helmet";
 
 import studentsRouter from "../routes/studentsRoute";
 import teachersRouter from "../routes/teachersRoute";
@@ -17,6 +18,7 @@ const app = express();
 const port = process.env.PORT;
 
 app.use(cors());
+app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

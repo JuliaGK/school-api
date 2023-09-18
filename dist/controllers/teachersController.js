@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteTeacher = exports.updateTeacher = exports.addTeacher = exports.getTeacher = exports.getTeachers = exports.teachersRoot = void 0;
+exports.deleteTeacher = exports.updateTeacher = exports.addTeacher = exports.getSalaryAverage = exports.getTeacher = exports.getTeachersOrderedByBirthday = exports.getTeachers = exports.teachersRoot = void 0;
 const dbConfig_1 = require("../db/dbConfig");
 const teachersRoot = (req, res) => {
     res.send("teachers root");
@@ -20,6 +20,20 @@ const getTeachers = (req, res) => {
     });
 };
 exports.getTeachers = getTeachers;
+const getTeachersOrderedByBirthday = (req, res) => {
+    const teachers = [];
+    const sql = `SELECT * FROM teachers ORDER BY birthday;`;
+    dbConfig_1.db.each(sql, [], (error, row) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        teachers.push(row);
+    }, () => {
+        res.send(teachers);
+    });
+};
+exports.getTeachersOrderedByBirthday = getTeachersOrderedByBirthday;
 const getTeacher = (req, res) => {
     const id = req.query.id;
     const sql = `
@@ -40,6 +54,28 @@ const getTeacher = (req, res) => {
     });
 };
 exports.getTeacher = getTeacher;
+const getSalaryAverage = (req, res) => {
+    const sql = `
+        SELECT salary FROM teachers ;
+    `;
+    dbConfig_1.db.all(sql, [], (error, rows) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        res.status(200);
+        const avgSalary = rows.reduce((sum, row) => {
+            return sum + row.salary;
+        }, 0) / rows.length;
+        if (avgSalary) {
+            res.send(avgSalary.toString());
+        }
+        else {
+            res.send("Sem professores cadastrados");
+        }
+    });
+};
+exports.getSalaryAverage = getSalaryAverage;
 const addTeacher = (req, res) => {
     const teacher = req.body;
     const sql = `

@@ -5,6 +5,7 @@ const studentsController_1 = require("../controllers/studentsController");
 const studentsRouter = (0, express_1.Router)();
 studentsRouter.get("/", studentsController_1.studentsRoot);
 studentsRouter.get("/getStudents", studentsController_1.getStudents);
+studentsRouter.get("/getStudentsOrderedByBirthday", studentsController_1.getStudentsOrderedByBirthday);
 studentsRouter.get("/getStudent", studentsController_1.getStudent);
 studentsRouter.post("/addStudent", studentsController_1.addStudent);
 studentsRouter.put("/updateStudent", studentsController_1.updateStudent);

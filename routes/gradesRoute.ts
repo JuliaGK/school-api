@@ -2,6 +2,8 @@ import { Router } from "express";
 import {
     gradesRoot,
     getGrades,
+    getGradesBySubject,
+    getGradesByStudent,
     getGrade,
     addGrade,
     updateGrade,
@@ -13,6 +15,10 @@ const gradesRouter = Router();
 gradesRouter.get("/", gradesRoot);
 
 gradesRouter.get("/getGrades", getGrades);
+
+gradesRouter.get("/getGradesBySubject", getGradesBySubject);
+
+gradesRouter.get("/getGradesByStudent", getGradesByStudent);
 
 gradesRouter.get("/getGrade", getGrade);
 

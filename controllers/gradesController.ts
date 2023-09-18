@@ -7,7 +7,7 @@ const gradesRoot = (req: Request, res: Response) => {
 };
 
 const getGrades = (req: Request, res: Response) => {
-    const subjects: Grade[] = [];
+    const grades: Grade[] = [];
     const sql = `SELECT * FROM grades;`;
 
     db.each(
@@ -18,10 +18,52 @@ const getGrades = (req: Request, res: Response) => {
                 res.status(400);
                 res.end(error);
             }
-            subjects.push(row);
+            grades.push(row);
         },
         () => {
-            res.send(subjects);
+            res.send(grades);
+        }
+    );
+};
+
+const getGradesBySubject = (req: Request, res: Response) => {
+    const grades: Grade[] = [];
+    const idSubject = req.query.id;
+    const sql = `SELECT * FROM grades WHERE idSubject = ${idSubject};`;
+
+    db.each(
+        sql,
+        [],
+        (error: Error, row: Grade) => {
+            if (error) {
+                res.status(400);
+                res.end(error);
+            }
+            grades.push(row);
+        },
+        () => {
+            res.send(grades);
+        }
+    );
+};
+
+const getGradesByStudent = (req: Request, res: Response) => {
+    const grades: Grade[] = [];
+    const idStudent = req.query.id;
+    const sql = `SELECT * FROM grades WHERE idStudent = ${idStudent};`;
+
+    db.each(
+        sql,
+        [],
+        (error: Error, row: Grade) => {
+            if (error) {
+                res.status(400);
+                res.end(error);
+            }
+            grades.push(row);
+        },
+        () => {
+            res.send(grades);
         }
     );
 };
@@ -102,4 +144,13 @@ const deleteGrade = (req: Request, res: Response) => {
     });
 };
 
-export { gradesRoot, getGrades, getGrade, addGrade, updateGrade, deleteGrade };
+export {
+    gradesRoot,
+    getGrades,
+    getGradesBySubject,
+    getGradesByStudent,
+    getGrade,
+    addGrade,
+    updateGrade,
+    deleteGrade,
+};

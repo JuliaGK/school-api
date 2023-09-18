@@ -5,6 +5,8 @@ const gradesController_1 = require("../controllers/gradesController");
 const gradesRouter = (0, express_1.Router)();
 gradesRouter.get("/", gradesController_1.gradesRoot);
 gradesRouter.get("/getGrades", gradesController_1.getGrades);
+gradesRouter.get("/getGradesBySubject", gradesController_1.getGradesBySubject);
+gradesRouter.get("/getGradesByStudent", gradesController_1.getGradesByStudent);
 gradesRouter.get("/getGrade", gradesController_1.getGrade);
 gradesRouter.post("/addGrade", gradesController_1.addGrade);
 gradesRouter.put("/updateGrade", gradesController_1.updateGrade);

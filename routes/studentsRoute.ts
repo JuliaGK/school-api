@@ -3,6 +3,7 @@ import {
     studentsRoot,
     addStudent,
     getStudents,
+    getStudentsOrderedByBirthday,
     getStudent,
     updateStudent,
     deleteStudent,
@@ -13,6 +14,11 @@ const studentsRouter = Router();
 studentsRouter.get("/", studentsRoot);
 
 studentsRouter.get("/getStudents", getStudents);
+
+studentsRouter.get(
+    "/getStudentsOrderedByBirthday",
+    getStudentsOrderedByBirthday
+);
 
 studentsRouter.get("/getStudent", getStudent);
 

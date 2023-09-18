@@ -7,7 +7,6 @@ const Person_1 = __importDefault(require("./Person"));
 class Student extends Person_1.default {
     constructor(id, name, cpf, birthday, year, shift, room) {
         super(id, name, cpf, birthday);
-        this.subjects = [];
         this.year = year;
         this.shift = shift;
         this.room = room;

@@ -1,25 +1,55 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteGrade = exports.updateGrade = exports.addGrade = exports.getGrade = exports.getGrades = exports.gradesRoot = void 0;
+exports.deleteGrade = exports.updateGrade = exports.addGrade = exports.getGrade = exports.getGradesByStudent = exports.getGradesBySubject = exports.getGrades = exports.gradesRoot = void 0;
 const dbConfig_1 = require("../db/dbConfig");
 const gradesRoot = (req, res) => {
     res.send("grades root");
 };
 exports.gradesRoot = gradesRoot;
 const getGrades = (req, res) => {
-    const subjects = [];
+    const grades = [];
     const sql = `SELECT * FROM grades;`;
     dbConfig_1.db.each(sql, [], (error, row) => {
         if (error) {
             res.status(400);
             res.end(error);
         }
-        subjects.push(row);
+        grades.push(row);
     }, () => {
-        res.send(subjects);
+        res.send(grades);
     });
 };
 exports.getGrades = getGrades;
+const getGradesBySubject = (req, res) => {
+    const grades = [];
+    const idSubject = req.query.id;
+    const sql = `SELECT * FROM grades WHERE idSubject = ${idSubject};`;
+    dbConfig_1.db.each(sql, [], (error, row) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        grades.push(row);
+    }, () => {
+        res.send(grades);
+    });
+};
+exports.getGradesBySubject = getGradesBySubject;
+const getGradesByStudent = (req, res) => {
+    const grades = [];
+    const idStudent = req.query.id;
+    const sql = `SELECT * FROM grades WHERE idStudent = ${idStudent};`;
+    dbConfig_1.db.each(sql, [], (error, row) => {
+        if (error) {
+            res.status(400);
+            res.end(error);
+        }
+        grades.push(row);
+    }, () => {
+        res.send(grades);
+    });
+};
+exports.getGradesByStudent = getGradesByStudent;
 const getGrade = (req, res) => {
     const id = req.query.id;
     const sql = `

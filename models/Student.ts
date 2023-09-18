@@ -4,7 +4,6 @@ class Student extends Person {
     year: number;
     shift: string;
     room: string;
-    subjects: string[] = [];
 
     constructor(
         id: number,
