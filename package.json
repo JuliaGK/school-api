@@ -6,7 +6,8 @@
     "scripts": {
         "start-ts": "tsc -w",
         "start-js": "nodemon dist/src/app.js",
-        "start": "concurrently npm:start-ts npm:start-js"
+        "start": "concurrently npm:start-ts npm:start-js",
+        "dev": "ts-node-dev --cls --rs --ignore-watch node_modules src/app.ts"
     },
     "author": "",
     "license": "ISC",
@@ -18,12 +19,13 @@
         "helmet": "^7.0.0",
         "morgan": "^1.10.0",
         "nodemon": "^3.0.1",
-        "sqlite3": "^5.1.6",
-        "typescript": "^5.2.2"
+        "sqlite3": "^5.1.6"
     },
     "devDependencies": {
         "@types/cors": "^2.8.14",
         "@types/express": "^4.17.17",
-        "@types/morgan": "^1.9.5"
+        "@types/morgan": "^1.9.5",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.2.2"
     }
 }
